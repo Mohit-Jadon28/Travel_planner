@@ -3,10 +3,20 @@ from __future__ import annotations
 
 import json
 import random
+import sys
 import time
 from typing import Any, Callable
 
 from .config import CONFIG
+
+
+def configure_console_encoding() -> None:
+    """Keep unsupported console characters from masking planner errors."""
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is not None:
+            reconfigure(errors="backslashreplace")
+
 
 try:
     import tiktoken

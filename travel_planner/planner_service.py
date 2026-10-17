@@ -17,6 +17,7 @@ from travel_planner.pdf_export import markdown_plan_to_pdf
 from travel_planner.resource_manager import ResourceManager
 from travel_planner.sandbox import SANDBOX_ROOT
 from travel_planner.schemas import TravelRequest
+from travel_planner.utils import configure_console_encoding
 
 
 ProgressCallback = Callable[[str, dict[str, Any]], None]
@@ -31,6 +32,7 @@ def run_trip(
     progress: ProgressCallback | None = None,
 ) -> dict[str, Any]:
     """Run the graph and return a UI-friendly result bundle."""
+    configure_console_encoding()
     problems = require_keys()
     if problems:
         raise RuntimeError("; ".join(problems))

@@ -31,7 +31,7 @@ def safe_node(name: str):
                 return fn(state)
             except Exception as e:  # noqa: BLE001
                 err = f"[{name}] failed: {e}"
-                print("\u203c\ufe0f ", err)
+                print("[ERROR]", err)
                 return {"errors": [err], "execution_log": [f"{name.upper()}: ERROR - {e}"]}
         return wrapper
     return decorator

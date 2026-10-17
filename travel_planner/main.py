@@ -15,7 +15,7 @@ from travel_planner.sandbox import SANDBOX_ROOT
 from travel_planner.graph import build_app
 from travel_planner.agents import SUBAGENT_SPAWN_LOG
 from travel_planner.pdf_export import markdown_plan_to_pdf
-from travel_planner.utils import count_tokens
+from travel_planner.utils import configure_console_encoding
 from travel_planner.resource_manager import ResourceManager
 
 
@@ -81,6 +81,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
+    configure_console_encoding()
     args = parse_args()
     ResourceManager.reset_run_budget()
 
