@@ -1,0 +1,31 @@
+# Python environments and bytecode
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Generated agent state and runtime sandbox data
+travel_planner/travel_agent_memory.json
+travel_sandbox/
+travel_planner/travel_sandbox/
+
+# Generated reports and PDFs
+travel_planner/run_report.json
+travel_planner/travel_plan.pdf
+travel_planner/reference_run/
+travel_planner/run_output/
+travel_planner/skills_run/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
